@@ -11,6 +11,7 @@ const db = new Sequelize(
   DBConfig.password,
   {
     host: DBConfig.host,
+    port: DBConfig.port,
     dialect: 'mysql',
     dialectOptions: {
       charset: 'utf8'
