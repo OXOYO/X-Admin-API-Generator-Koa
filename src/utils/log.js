@@ -2,14 +2,16 @@
  * Created by OXOYO on 2017/11/2.
  */
 
-import { configure, getLogger } from 'log4js'
-import { Log as LogConfig } from '../config'
+import log4js from 'log4js'
+import config from '../config'
 
 // 格式化响应日志
 const formatRes = (ctx, ms) => {
   let tmpArr = []
 
   tmpArr.push('\n' + '********** RESPONSE START **********' + '\n\n')
+  tmpArr.push('  request id: ' + ctx.state.requestId + '\n\n')
+  tmpArr.push('  request userInfo: ' + JSON.stringify(ctx.state.userInfo) + '\n\n')
   tmpArr.push(formatReq(ctx.request, ms) + '\n')
   tmpArr.push('  response status: ' + ctx.status + '\n')
   tmpArr.push('  response body: ' + '\n  ' + JSON.stringify(ctx.body) + '\n\n')
@@ -23,6 +25,8 @@ const formatError = (ctx, err, ms) => {
   let tmpArr = []
 
   tmpArr.push('\n' + '********** ERROR START **********' + '\n\n')
+  tmpArr.push('  request id: ' + ctx.state.requestId + '\n\n')
+  tmpArr.push('  request userInfo: ' + JSON.stringify(ctx.state.userInfo) + '\n\n')
   tmpArr.push(formatReq(ctx.request, ms))
   tmpArr.push('  err name: ' + err.name + '\n')
   tmpArr.push('  err message: ' + err.message + '\n')
@@ -49,19 +53,43 @@ const formatReq = (req, ms) => {
   return tmpArr.join('')
 }
 
-// 加载配置文件
-configure(LogConfig)
+// 处理接口排除
+const handleUnless = function (ctx) {
+  let originalUrl = ctx.request.originalUrl
+  // 是否排除标识
+  let isExclude = false
+  if (!originalUrl) {
+    return false
+  }
+  // 排除method
+  if (config.log.unless.methods.includes(ctx.method.toUpperCase())) {
+    return true
+  }
+  // 排除api
+  for (let i = 0, len = config.log.unless.api.length; i < len; i++) {
+    if (originalUrl.includes(config.log.unless.api[i])) {
+      isExclude = true
+      break
+    }
+  }
+  return isExclude
+}
 
 // log 中间件
-export const log = {
-  error: (ctx, error, ms) => {
+export default function () {
+  // 加载配置文件
+  log4js.configure(config.log.options)
+
+  // error
+  this.error = function (ctx, error, ms) {
     if (ctx && error) {
-      getLogger('error').error(formatError(ctx, error, ms))
+      log4js.getLogger('error').error(formatError(ctx, error, ms))
     }
-  },
-  response: (ctx, ms) => {
-    if (ctx) {
-      getLogger('result').info(formatRes(ctx, ms))
+  }
+  // response
+  this.response = function (ctx, ms) {
+    if (ctx && !handleUnless(ctx)) {
+      log4js.getLogger('result').info(formatRes(ctx, ms))
     }
   }
 }

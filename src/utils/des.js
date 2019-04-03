@@ -12,8 +12,8 @@ export default {
     cbc: 'des-cbc'
   },
   encrypt: function (key, plaintext, iv) {
-    key = new Buffer(key)
-    iv = new Buffer(iv)
+    key = Buffer.from(key)
+    iv = Buffer.alloc(iv)
     let cipher = crypto.createCipheriv(this.algorithm.ecb, key, iv)
     // default true
     cipher.setAutoPadding(true)
@@ -21,9 +21,9 @@ export default {
     ciph += cipher.final('base64')
     return ciph
   },
-  decrypt: function (encryptText, iv) {
-    let key = new Buffer(key)
-    iv = new Buffer(iv)
+  decrypt: function (key, encryptText, iv) {
+    key = Buffer.from(key)
+    iv = Buffer.alloc(iv)
     let decipher = crypto.createDecipheriv(this.algorithm.ecb, key, iv)
     decipher.setAutoPadding(true)
     let txt = decipher.update(encryptText, 'base64', 'utf8')

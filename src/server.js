@@ -4,11 +4,11 @@
 require('babel-register')
 require('babel-polyfill')
 
-var app = require('./app')
-var SystemConfig = require('./config').System
+const app = require('./app')
+const config = require('./config')
 
-var server = app.listen(SystemConfig.port, function () {
-  let serverPath = SystemConfig.protocol + SystemConfig.host + (SystemConfig.port ? ':' + SystemConfig.port : SystemConfig.port)
+var server = app.listen(config.system.port, function () {
+  let serverPath = config.system.protocol + config.system.host + (config.system.port ? ':' + config.system.port : config.system.port)
   console.log('RESTful API Server is listening to ' + serverPath)
 })
 

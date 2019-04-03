@@ -5,7 +5,7 @@
 const gulp = require('gulp')
 const gulpEslint = require('gulp-eslint')
 const gulpNodemon = require('gulp-nodemon')
-const gulpSequence = require('gulp-sequence')
+// const gulpSequence = require('gulp-sequence')
 const eslintFriendlyFormatter = require('eslint-friendly-formatter')
 
 const config = {
@@ -24,34 +24,35 @@ const lintFiles = (files) => {
   ).pipe(
     gulpEslint.format(eslintFriendlyFormatter)
   ).pipe(
-    gulpEslint.result(results => {
+    gulpEslint.result(result => {
       // Called for each ESLint result.
-      console.log(`ESLint result: ${results.filePath}`)
-      console.log(`# Messages: ${results.messages.length}`)
-      console.log(`# Warnings: ${results.warningCount}`)
-      console.log(`# Errors: ${results.errorCount}`)
-    })
-  ).pipe(
-    gulpEslint.results(results => {
-      // Called once for all ESLint results.
-      console.log(`Total Results: ${results.length}`)
-      console.log(`Total Warnings: ${results.warningCount}`)
-      console.log(`Total Errors: ${results.errorCount}`)
+      if (result.messages.length || result.warningCount || result.errorCount) {
+        console.log(`ESLint Check: ${result.filePath}`)
+      }
+      if (result.warningCount) {
+        console.log(`# Warnings: ${result.warningCount}`)
+      }
+      if (result.errorCount) {
+        console.log(`# Errors: ${result.errorCount}`)
+      }
+      if (result.messages.length) {
+        console.log(`# Messages: ${JSON.stringify(result.messages)}`)
+      }
     })
   )
 }
 
 // eslint
-gulp.task('ESlint', () => {
-  lintFiles([
+gulp.task('ESlint', async () => {
+  await lintFiles([
     'src/**',
     '!node_modules/**'
   ])
 })
 
 // nodemon
-gulp.task('nodemon', () => {
-  let stream = gulpNodemon({
+gulp.task('nodemon', async (done) => {
+  let stream = await gulpNodemon({
     script: config.server.script,
     ext: 'js',
     env: {
@@ -62,18 +63,20 @@ gulp.task('nodemon', () => {
       return []
     }
   })
-  stream.on('restart', () => {
+  await stream.on('restart', () => {
     console.log('Service restarted!')
   }).on('crash', () => {
     console.error('Service has crashed!\n')
     // restart the server in 10 seconds
     // stream.emit('restart', 10)
+    done()
   })
 })
 
 // default
-gulp.task('default', () => {
-  gulpSequence('ESlint', 'nodemon')(() => {
-    console.log('Service started!')
-  })
+gulp.task('default', async () => {
+  // await gulpSequence('ESlint', 'nodemon')(() => {
+  //   console.log('Service started!')
+  // })
+  gulp.series('ESlint', 'nodemon')()
 })

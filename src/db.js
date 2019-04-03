@@ -3,15 +3,15 @@
  */
 
 import Sequelize from 'sequelize'
-import { DB as DBConfig } from './config'
+import config from './config'
 
 const db = new Sequelize(
-  DBConfig.database,
-  DBConfig.username,
-  DBConfig.password,
+  config.db.database,
+  config.db.username,
+  config.db.password,
   {
-    host: DBConfig.host,
-    port: DBConfig.port,
+    host: config.db.host,
+    port: config.db.port,
     dialect: 'mysql',
     dialectOptions: {
       charset: 'utf8'

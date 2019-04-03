@@ -3,14 +3,13 @@
  */
 
 import Ctrl from './Ctrl'
-import auth from '../../auth'
 
 const namespace = '/Platform/'
 
 export default (router) => {
   router
     .post(namespace + 'user/signIn', Ctrl.user.doSignIn)
-    .get(namespace + 'user/BaseInfo', auth.verifyToken, Ctrl.user.getBaseInfo)
+    .get(namespace + 'user/BaseInfo', Ctrl.user.getBaseInfo)
     // .post(namespace + 'user/logout', Ctrl.user.doLogout)
     .get(namespace + 'components/wallpaper/bing', Ctrl.components.getBingWallpaper)
 }

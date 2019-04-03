@@ -5,8 +5,7 @@
 import axios from 'axios'
 import Model from './Model'
 import utils from '../../utils/'
-import auth from '../../auth'
-import { Cookie as cookieConfig, Account as accountConfig } from '../../config'
+import config from '../../config'
 
 export default {
   user: {
@@ -18,13 +17,12 @@ export default {
       if (reqBody && reqBody.account && reqBody.password) {
         // 执行平台内用户查询
         // 加密密码
-        let password = utils.des.encrypt(accountConfig.key, reqBody.password, 0)
+        let password = utils.des.encrypt(config.system.secret, reqBody.password, 0)
         console.log('password', password)
         res = await Model.user.doSignIn({
           account: reqBody.account,
           password: password
         })
-        console.log('xxx', res)
         let data = {
           userInfo: res
         }
@@ -36,11 +34,11 @@ export default {
             type: res.type,
             status: res.status
           }
-          let token = auth.sign(userInfo)
+          let token = utils.auth.sign(userInfo)
 
           if (token) {
             // 设置返回token
-            data[cookieConfig.getItem('token')] = token
+            data[config.cookie.getItem('token')] = token
             res = {
               status: 200,
               msg: '登录成功！',
@@ -75,7 +73,7 @@ export default {
     getBaseInfo: async (ctx, next) => {
       await next()
       // TODO 处理参数
-      let userInfo = ctx.userInfo
+      let userInfo = ctx.state.userInfo
       let res
       if (userInfo && userInfo.userId) {
         // 查询结果
@@ -109,6 +107,7 @@ export default {
       await next()
       let reqQuery = ctx.query
       let bingApi = 'http://cn.bing.com/HPImageArchive.aspx'
+      console.log('reqQuery', reqQuery)
       let payload = {
         format: reqQuery.format || 'js',
         idx: reqQuery.idx || 0,
