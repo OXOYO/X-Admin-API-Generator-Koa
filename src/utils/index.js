@@ -7,7 +7,7 @@ import des from './des'
 import auth from './auth'
 
 export default {
-  log,
+  Log: log,
   des,
   auth
 }

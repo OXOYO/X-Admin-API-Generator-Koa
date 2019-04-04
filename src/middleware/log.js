@@ -6,7 +6,7 @@
 
 import utils from '../utils'
 // 实例化log
-const logInstance = new utils.log()
+const logInstance = new utils.Log()
 
 // 日志中间件
 export default function () {

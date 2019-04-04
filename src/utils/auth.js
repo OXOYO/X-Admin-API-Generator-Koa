@@ -16,7 +16,6 @@ export default {
   },
   // token 验证
   verifyToken: async function (ctx, next) {
-
     let currentPath = ctx.path.slice(config.api.prefix.length)
     let unlessAPI = config.auth.unless.verifyToken.api
     if (!unlessAPI.length || unlessAPI.includes(currentPath)) {

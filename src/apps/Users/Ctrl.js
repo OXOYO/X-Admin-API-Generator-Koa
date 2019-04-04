@@ -14,7 +14,7 @@ export default {
     // 处理结果
     if (res) {
       res = {
-        status: 200,
+        code: 200,
         msg: '查询账号列表成功！',
         data: {
           count: res.length,
@@ -23,7 +23,7 @@ export default {
       }
     } else {
       res = {
-        status: 5000,
+        code: 5000,
         msg: '查询账号列表失败！',
         data: {}
       }
@@ -51,26 +51,26 @@ export default {
       // 处理结果
       if (isSuccess) {
         res = {
-          status: 200,
+          code: 200,
           msg: '添加账号成功！',
           data: resAccount
         }
       } else if (resAccount) {
         res = {
-          status: 5000,
+          code: 5000,
           msg: '添加账号失败，该账号已存在！',
           data: resAccount
         }
       } else {
         res = {
-          status: 5000,
+          code: 5000,
           msg: '添加账号失败！',
           data: {}
         }
       }
     } else {
       res = {
-        status: 5001,
+        code: 5001,
         msg: '添加账号失败，上送参数有误！',
         data: {}
       }
@@ -89,20 +89,20 @@ export default {
       // 处理结果
       if (res) {
         res = {
-          status: 200,
+          code: 200,
           msg: '删除账号成功！',
           data: res
         }
       } else {
         res = {
-          status: 5000,
+          code: 5000,
           msg: '删除账号失败！',
           data: {}
         }
       }
     } else {
       res = {
-        status: 5001,
+        code: 5001,
         msg: '删除账号失败，上送参数有误！',
         data: {}
       }
@@ -125,20 +125,20 @@ export default {
       // 处理结果
       if (res && res[0]) {
         res = {
-          status: 200,
+          code: 200,
           msg: '编辑账号成功！',
           data: res
         }
       } else {
         res = {
-          status: 5000,
+          code: 5000,
           msg: '编辑账号失败！',
           data: res
         }
       }
     } else {
       res = {
-        status: 5001,
+        code: 5001,
         msg: '编辑账号失败，上送参数有误！',
         data: {}
       }

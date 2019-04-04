@@ -40,13 +40,13 @@ export default {
             // 设置返回token
             data[config.cookie.getItem('token')] = token
             res = {
-              status: 200,
+              code: 200,
               msg: '登录成功！',
               data: data
             }
           } else {
             res = {
-              status: 5000,
+              code: 5000,
               msg: '登录失败，生成Token失败！',
               data: data
             }
@@ -55,14 +55,14 @@ export default {
           // 动态获取管理员
           let adminInfo = await Model.user.getOneAdmin()
           res = {
-            status: 5000,
+            code: 5000,
             msg: '登录失败！' + (adminInfo && adminInfo.account && adminInfo.name ? '请联系管理员 ' + adminInfo.name + ' (' + adminInfo.account + ')' : ''),
             data: data
           }
         }
       } else {
         res = {
-          status: 5001,
+          code: 5001,
           msg: '登录失败，上送参数有误！',
           data: {}
         }
@@ -81,20 +81,20 @@ export default {
         // 处理结果
         if (res) {
           res = {
-            status: 200,
+            code: 200,
             msg: '获取用户基本信息成功！',
             data: res
           }
         } else {
           res = {
-            status: 5000,
+            code: 5000,
             msg: '获取用户基本信息失败！',
             data: res
           }
         }
       } else {
         res = {
-          status: 5001,
+          code: 5001,
           msg: '获取用户基本信息失败，上送参数有误！',
           data: {}
         }
@@ -119,13 +119,13 @@ export default {
           params: payload
         })
         res = {
-          status: 200,
+          code: 200,
           msg: '获取bing壁纸成功！',
           data: res.data
         }
       } catch (err) {
         res = {
-          status: 5000,
+          code: 5000,
           msg: '获取bing壁纸失败',
           data: err
         }

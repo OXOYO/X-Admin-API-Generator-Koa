@@ -1,6 +1,6 @@
 {
   "name": "x-restful-api-generator-koa",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A RESTful API service generator by Koa.",
   "main": "server.js",
   "scripts": {
@@ -23,30 +23,23 @@
   "dependencies": {
     "axios": "^0.17.1",
     "codecov": "^3.0.0",
-    "ioredis": "^4.9.0",
     "jsonwebtoken": "^8.1.0",
     "koa": "^2.3.0",
     "koa-body": "^4.1.0",
-    "koa-bodyparser": "^4.2.0",
     "koa-compose": "^4.0.0",
     "koa-convert": "^1.2.0",
     "koa-cors": "0.0.16",
-    "koa-generic-session": "^2.0.0",
     "koa-helmet": "^3.2.0",
     "koa-limit": "^1.0.2",
     "koa-logger": "^3.1.0",
-    "koa-multer": "^1.0.2",
     "koa-qs": "^2.0.0",
-    "koa-ratelimit": "^4.2.0",
     "koa-router": "^7.2.1",
     "koa-static": "^4.0.1",
     "log4js": "^2.3.11",
     "mysql2": "^1.4.2",
     "require-directory": "^2.1.1",
     "sequelize": "^4.18.0",
-    "sequelize-auto": "^0.4.29",
-    "uuid": "^3.3.2",
-    "xml2js": "^0.4.19"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -70,6 +63,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
+    "sequelize-auto": "^0.4.29",
     "supertest": "^3.0.0"
   },
   "engines": {

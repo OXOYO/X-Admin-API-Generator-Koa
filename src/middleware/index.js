@@ -9,7 +9,7 @@ import koaLimit from 'koa-limit'
 import koaLogger from 'koa-logger'
 import koaCors from 'koa-cors'
 import koaBody from 'koa-body'
-import koaStatic from 'koa-static'
+// import koaStatic from 'koa-static'
 
 import config from '../config'
 import api from './api'
