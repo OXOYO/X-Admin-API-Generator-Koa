@@ -67,7 +67,7 @@ export default {
           data: {}
         }
       }
-      ctx.body = res || {}
+      ctx.body = res
     },
     // 获取用户基本信息
     getBaseInfo: async (ctx, next) => {
@@ -99,7 +99,7 @@ export default {
           data: {}
         }
       }
-      ctx.body = res || {}
+      ctx.body = res
     }
   },
   components: {

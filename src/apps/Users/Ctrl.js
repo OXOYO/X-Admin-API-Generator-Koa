@@ -29,7 +29,7 @@ export default {
       }
     }
 
-    ctx.body = res || {}
+    ctx.body = res
   },
   // 添加账号
   doAddUser: async (ctx, next) => {
@@ -43,7 +43,7 @@ export default {
       update_time: timeNow
     }
     let res
-    if (data && data.account && data.name) {
+    if (data.account && data.name) {
       res = await Model.doAddUser(data)
       // 最后一项为插入成功与否标识
       let [resAccount] = res
@@ -76,7 +76,7 @@ export default {
       }
     }
 
-    ctx.body = res || {}
+    ctx.body = res
   },
   // 删除账号
   doRemoveUser: async (ctx, next) => {
@@ -108,7 +108,7 @@ export default {
       }
     }
 
-    ctx.body = res || {}
+    ctx.body = res
   },
   // 编辑账号
   doEditUser: async (ctx, next) => {
@@ -120,7 +120,7 @@ export default {
       update_time: timeNow
     }
     let res
-    if (data && data.account && data.name) {
+    if (data.account && data.name) {
       res = await Model.doEditUser(data)
       // 处理结果
       if (res && res[0]) {
@@ -144,6 +144,6 @@ export default {
       }
     }
 
-    ctx.body = res || {}
+    ctx.body = res
   }
 }
