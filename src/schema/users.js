@@ -22,10 +22,20 @@ module.exports = function(sequelize, DataTypes) {
     },
     type: {
       type: DataTypes.INTEGER(1),
-      allowNull: false
+      allowNull: false,
+      defaultValue: '2'
+    },
+    group_id: {
+      type: DataTypes.STRING(100),
+      allowNull: true
     },
     status: {
       type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    create_user_id: {
+      type: DataTypes.INTEGER(11),
       allowNull: false
     },
     create_time: {
