@@ -132,5 +132,31 @@ export default {
       }
       ctx.body = res || {}
     }
+  },
+  resource: {
+    getAllResourceList: async (ctx, next) => {
+      await next()
+      let reqQuery = ctx.query
+      // 查询结果
+      let res = await Model.resource.getAllResourceList(reqQuery)
+      // 处理结果
+      if (res) {
+        res = {
+          code: 200,
+          msg: '查询资源列表成功！',
+          data: {
+            count: res.count,
+            list: res.rows
+          }
+        }
+      } else {
+        res = {
+          code: 5000,
+          msg: '查询资源列表失败！',
+          data: {}
+        }
+      }
+      ctx.body = res
+    }
   }
 }
