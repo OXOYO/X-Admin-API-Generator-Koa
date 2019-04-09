@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-04-08 09:47:07
+-- 生成日期： 2019-04-09 09:52:06
 -- 服务器版本： 5.7.24
 -- PHP 版本： 7.2.14
 
@@ -34,9 +34,10 @@ DROP TABLE IF EXISTS `resources`;
 CREATE TABLE IF NOT EXISTS `resources` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '资源ID',
   `name` varchar(100) NOT NULL COMMENT '资源名称（英文）',
-  `component` varchar(100) NOT NULL COMMENT '组件名',
+  `dir` varchar(100) NOT NULL COMMENT '资源目录名',
   `icon` varchar(50) DEFAULT NULL COMMENT '资源图标',
   `title` varchar(50) NOT NULL COMMENT '资源标题（中文/英文）',
+  `lang` varchar(32) NOT NULL COMMENT 'title对应的语言包key',
   `description` varchar(500) NOT NULL COMMENT '描述',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '父ID，一级节点父ID为空',
   `num` int(11) NOT NULL DEFAULT '1' COMMENT '序号',
@@ -49,19 +50,20 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='资源表';
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='资源表';
 
 --
 -- 转存表中的数据 `resources`
 --
 
-INSERT INTO `resources` (`id`, `name`, `component`, `icon`, `title`, `description`, `parent_id`, `num`, `position`, `type`, `url`, `target`, `permission_type`, `enable`, `create_time`, `update_time`) VALUES
-(1, 'platform.admin.Index', 'AdminIndex', 'md-home', '首页', '', 0, 1, 'admin', 'module-system', '', 0, '0', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(2, 'platform.admin.Users', 'Users', 'md-people', '用户管理', '', 0, 2, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(3, 'platform.admin.Resources', 'Resources', 'md-cube', '资源管理', '', 0, 3, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(4, 'platform.admin.Roles', 'Roles', 'md-shirt', '角色管理', '', 0, 4, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(5, 'platform.home.signin', 'SignIn', '', '登录', '', 0, 0, 'home-nav', 'module-system', '', 0, '', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(6, 'platform.home.about', 'About', '', '关于', '', 0, 0, 'home-nav', 'module-system', '', 0, '', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00');
+INSERT INTO `resources` (`id`, `name`, `dir`, `icon`, `title`, `lang`, `description`, `parent_id`, `num`, `position`, `type`, `url`, `target`, `permission_type`, `enable`, `create_time`, `update_time`) VALUES
+(1, 'platform.admin.Index', 'AdminIndex', 'md-home', '首页', 'R00001', '后台首页', 0, 0, 'admin', 'module-system', '', 0, '0', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(2, 'platform.admin.Users', 'Users', 'md-people', '用户管理', 'R00002', '', 7, 1, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(3, 'platform.admin.Resources', 'Resources', 'md-cube', '资源管理', 'R00003', '', 7, 2, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(4, 'platform.admin.Roles', 'Roles', 'md-shirt', '角色管理', 'R00004', '', 7, 3, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(5, 'platform.home.SigIn', 'SignIn', '', '登录', 'R00005', '', 0, 0, 'home-nav', 'module-system', '', 0, '', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(6, 'platform.home.About', 'About', '', '关于', 'R00006', '', 0, 0, 'home-nav', 'module-system', '', 0, '', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(7, 'platform.admin.System', 'System', 'md-settings', '系统管理', 'R00007', '', 0, 1, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00');
 
 -- --------------------------------------------------------
 
