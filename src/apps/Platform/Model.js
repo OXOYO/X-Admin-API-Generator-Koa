@@ -60,11 +60,17 @@ export default {
       // 拼装where条件
       let whereObj = {}
       // 处理id过滤
-      // 处理状态过滤
-      let idInArr = data.ids.split(',')
+      let idInArr = data.ids ? data.ids.split(',') : ''
       if (idInArr.length) {
         whereObj['id'] = {
           $in: idInArr
+        }
+      }
+      // 处理position过滤
+      let positionInArr = data.position || []
+      if (positionInArr.length) {
+        whereObj['position'] = {
+          $in: positionInArr
         }
       }
       // 处理状态过滤
@@ -80,6 +86,10 @@ export default {
         whereObj['type'] = {
           $in: typeInArr
         }
+      }
+      // 处理parent_id
+      if (data.parent_id) {
+        whereObj['parent_id'] = data.parent_id
       }
       // 处理options
       if ((Object.keys(whereObj)).length) {
