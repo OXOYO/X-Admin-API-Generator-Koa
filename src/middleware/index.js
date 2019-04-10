@@ -11,7 +11,6 @@ import koaCors from 'koa-cors'
 import koaBody from 'koa-body'
 // import koaStatic from 'koa-static'
 
-import config from '../config'
 import api from './api'
 import log from './log'
 
@@ -29,26 +28,7 @@ const middleware = koaCompose([
   koaHelmet(),
   // 跨域处理
   koaConvert(koaCors({
-    // origin: true,
-    origin: function (request) {
-      let host = request.header.origin
-      let isIncludes = false
-      // console.log('host', request.header)
-      // FIXME 安全起见，上线时需注掉如下判断
-      if (!host) {
-        return '*'
-      }
-      for (let i in config.system.accessHost) {
-        if (host.includes(config.system.accessHost[i])) {
-          isIncludes = true
-          break
-        }
-      }
-      if (isIncludes) {
-        return host
-      }
-      return config.system.host
-    },
+    origin: true,
     exposeHeaders: [],
     maxAge: 5,
     credentials: true,
