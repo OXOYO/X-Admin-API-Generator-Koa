@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-04-10 09:40:36
+-- 生成日期： 2019-04-11 10:02:31
 -- 服务器版本： 5.7.24
 -- PHP 版本： 7.2.14
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='资源表';
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='资源表';
 
 --
 -- 转存表中的数据 `resources`
@@ -63,7 +63,8 @@ INSERT INTO `resources` (`id`, `name`, `dir`, `icon`, `title`, `lang`, `descript
 (4, 'platform.admin.Roles', 'Roles', 'md-shirt', '角色管理', 'R00004', '', 7, 3, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
 (5, 'platform.home.SigIn', 'SignIn', '', '登录', 'R00005', '', 0, 0, 'home-nav', 'module-system', '', 0, '', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
 (6, 'platform.home.About', 'About', '', '关于', 'R00006', '', 0, 0, 'home-nav', 'module-system', '', 0, '', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(7, 'platform.admin.System', 'System', 'md-settings', '系统管理', 'R00007', '', 0, 1, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00');
+(7, 'platform.admin.System', 'System', 'md-settings', '系统管理', 'R00007', '', 0, 1, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(8, 'platform.admin.DemoApp', 'DemoApp', 'md-apps', 'DemoApp', '', '', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00');
 
 -- --------------------------------------------------------
 
