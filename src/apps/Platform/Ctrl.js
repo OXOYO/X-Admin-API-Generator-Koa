@@ -32,7 +32,7 @@ export default {
             account: res.account,
             userId: res.id,
             type: res.type,
-            status: res.status
+            code: res.code
           }
           let token = utils.auth.sign(userInfo)
 

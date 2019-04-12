@@ -51,7 +51,7 @@ export default {
             verifyRes = {
               flag: false,
               data: {
-                status: 9999,
+                code: 9999,
                 msg: 'token过期！请重新登录！',
                 data: {}
               }
@@ -66,7 +66,7 @@ export default {
           verifyRes = {
             flag: false,
             data: {
-              status: 9999,
+              code: 9999,
               msg: 'token校验失败！请重新登录！',
               data: err
             }
@@ -76,7 +76,7 @@ export default {
         verifyRes = {
           flag: false,
           data: {
-            status: 9999,
+            code: 9999,
             msg: 'token无效！请重新登录！',
             data: {}
           }

@@ -13,13 +13,13 @@ export default {
     // 处理结果
     if (res && res.statusText === 'success') {
       res = {
-        status: 200,
+        code: 200,
         msg: res.msg || '查询日志列表成功！',
         data: res
       }
     } else {
       res = {
-        status: 5000,
+        code: 5000,
         msg: res.msg || '查询日志列表失败！',
         data: res
       }
