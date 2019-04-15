@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-04-12 08:59:10
+-- 生成日期： 2019-04-15 09:59:41
 -- 服务器版本： 5.7.24
 -- PHP 版本： 7.2.14
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `resources` (
 --
 
 INSERT INTO `resources` (`id`, `name`, `dir`, `icon`, `title`, `lang`, `description`, `parent_id`, `num`, `position`, `type`, `url`, `target`, `permission_type`, `enable`, `create_time`, `update_time`) VALUES
-(1, 'platform.admin.Index', 'AdminIndex', 'md-home', '首页', 'R00001', '后台首页', 0, 0, 'admin', 'module-system', '', 0, '0', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(1, 'platform.admin.AdminIndex', 'AdminIndex', 'md-home', '首页', 'R00001', '后台首页', 0, 0, 'admin', 'module-system', '', 0, '0', 1, '2019-04-08 00:00:00', '2019-04-15 09:44:48'),
 (2, 'platform.admin.Users', 'Users', 'md-people', '用户管理', 'R00002', '', 7, 1, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
 (3, 'platform.admin.Resources', 'Resources', 'md-cube', '资源管理', 'R00003', '', 7, 2, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
 (4, 'platform.admin.Roles', 'Roles', 'md-shirt', '角色管理', 'R00004', '', 7, 3, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
