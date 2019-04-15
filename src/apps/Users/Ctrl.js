@@ -9,16 +9,17 @@ export default {
   getUserList: async (ctx, next) => {
     await next()
     let reqQuery = ctx.query
+    let userInfo = ctx.state.userInfo
     // 查询结果
-    let res = await Model.getUserList(reqQuery)
+    let res = await Model.getUserList(reqQuery, userInfo)
     // 处理结果
     if (res) {
       res = {
         code: 200,
         msg: '查询账号列表成功！',
         data: {
-          count: res.length,
-          list: res
+          count: res.count,
+          list: res.rows
         }
       }
     } else {

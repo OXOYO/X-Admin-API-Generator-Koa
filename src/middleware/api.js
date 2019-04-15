@@ -26,7 +26,7 @@ export default function api () {
   // 注册验证token中间件
   router.use(utils.auth.verifyToken)
   // 注册鉴权中间件
-  // router.use(utils.auth.verifyAccess)
+  router.use(utils.auth.verifyAccess)
   // 添加根路由
   router.get('/', async (ctx, next) => {
     await next()

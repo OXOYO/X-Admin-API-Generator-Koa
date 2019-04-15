@@ -100,6 +100,69 @@ export default {
         }
       }
       ctx.body = res
+    },
+    doVerifyAccess: async (ctx, next) => {
+      await next()
+      let reqQuery = ctx.query
+      let userInfo = ctx.state.userInfo
+      // 资源名称
+      let resourceName = reqQuery.name || ''
+      let res
+      if (userInfo && userInfo.userId && resourceName) {
+        let verifyFlag = false
+        let userResources
+        let userResourcesRes
+        if (userInfo.type === 0) {
+          verifyFlag = true
+        } else {
+          // 查询用户资源数据
+          userResourcesRes = await Model.user.getUserResources(userInfo.userId)
+          userResources = userResourcesRes.userResources || []
+          let resource = userResources.find(item => item.name === resourceName)
+          if (resource) {
+            verifyFlag = true
+          } else {
+            // 查询所有资源数据
+            let allResourcesRes = await Model.resource.getAllResourceList({
+              enable: [1],
+              type: ['module-system', 'module-app', 'module-link']
+            })
+            let parentResource = allResourcesRes.rows.find(item => item.name === resourceName)
+            let resource = userResources.find(item => item.parent_id === parentResource.id)
+            verifyFlag = !!resource
+          }
+        }
+        // 处理结果
+        if (verifyFlag) {
+          res = {
+            code: 200,
+            msg: '鉴权成功！',
+            data: {
+              verifyFlag,
+              resources: userResources,
+              dd: userResourcesRes
+            }
+          }
+        } else {
+          // 动态获取管理员
+          let adminInfo = await Model.user.getOneAdmin()
+          let contactAdmin = adminInfo && adminInfo.account && adminInfo.name ? '请联系管理员：' + adminInfo.name + ' (' + adminInfo.account + ')' : ''
+          res = {
+            code: 200,
+            msg: '鉴权失败！' + contactAdmin,
+            data: {
+              verifyFlag
+            }
+          }
+        }
+      } else {
+        res = {
+          code: 5001,
+          msg: '鉴权失败，上送参数有误！',
+          data: {}
+        }
+      }
+      ctx.body = res
     }
   },
   components: {

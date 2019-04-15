@@ -4,7 +4,7 @@
 
 import Ctrl from './Ctrl'
 
-const namespace = '/ResourcesManagement/'
+const namespace = '/Resources/'
 
 export default (router) => {
   router

@@ -11,7 +11,7 @@ const resourcesSchema = db.import('../../schema/resources')
 // 用户、用户组关联关系
 const userGroupRelate = usersSchema.hasMany(userGroupSchema, {foreignKey: 'id', sourceKey: 'group_id'})
 // 用户组、资源关联
-// const roleResourceRelate = userGroupSchema.hasMany(resourcesSchema, {foreignKey: 'id', sourceKey: 'resource_id', as: 'userResources'})
+const roleResourceRelate = userGroupSchema.hasMany(resourcesSchema, {foreignKey: 'id', sourceKey: 'resource_id', as: 'userResources'})
 
 export default {
   user: {
@@ -49,6 +49,26 @@ export default {
         where: {
           type: 0
         },
+        logging: true
+      })
+      return res
+    },
+    getUserResources: async function (userId) {
+      let res = await usersSchema.findOne({
+        where: {
+          id: userId
+        },
+        include: [
+          {
+            association: userGroupRelate,
+            on: db.literal('instr(concat(\',\', users.group_id, \',\'), concat(\',\', user_groups.id, \',\')) > 0')
+          },
+          // 关联资源
+          {
+            association: roleResourceRelate,
+            on: db.literal('instr(concat(\',\', user_groups.resource_id, \',\'), concat(\',\', userResources.id, \',\')) > 0')
+          }
+        ],
         logging: true
       })
       return res
