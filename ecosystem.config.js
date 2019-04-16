@@ -3,16 +3,16 @@
  */
 
 module.exports = {
-  apps : [
+  apps: [
     // 应用配置
     {
-      name: 'x-restful-api-generator-koa',
+      name: 'x-admin-api-generator-koa',
       script: './dist/server.js',
       watch: true,
       env: {
         NODE_ENV: 'development'
       },
-      env_production : {
+      env_production: {
         NODE_ENV: 'production'
       }
     }
