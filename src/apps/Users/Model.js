@@ -39,7 +39,6 @@ export default {
     }
     // 处理用户级别
     let typeInArr = data.userType || []
-    console.log('typeInArr', typeInArr, data)
     if (typeInArr.length) {
       whereObj['type'] = {
         $in: typeInArr

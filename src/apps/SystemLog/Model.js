@@ -50,7 +50,7 @@ export default {
       fileStream = fs.createReadStream(filePath)
     } catch (e) {
       return {
-        msg: '读取日志文件失败，日志文件不存在！',
+        msg: ctx.__('L00038'),
         statusText: 'error',
         list: []
       }
@@ -302,13 +302,13 @@ export default {
         }
 
         return {
-          msg: '读取日志文件成功！',
+          msg: ctx.__('L00039'),
           statusText: 'success',
           list: logList
         }
       }, (err) => {
         return {
-          msg: '读取日志文件失败，日志文件解析出错！',
+          msg: ctx.__('L00040'),
           statusText: 'error',
           err: err,
           list: []

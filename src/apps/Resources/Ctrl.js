@@ -14,7 +14,7 @@ export default {
     if (res) {
       res = {
         code: 200,
-        msg: '查询资源列表成功！',
+        msg: ctx.__('L00011'),
         data: {
           count: res.count,
           list: res.rows
@@ -23,7 +23,7 @@ export default {
     } else {
       res = {
         code: 5000,
-        msg: '查询资源列表失败！',
+        msg: ctx.__('L00012'),
         data: {}
       }
     }
@@ -39,7 +39,7 @@ export default {
     if (res) {
       res = {
         code: 200,
-        msg: '查询资源列表成功！',
+        msg: ctx.__('L00011'),
         data: {
           count: res.count,
           list: res.rows
@@ -48,7 +48,7 @@ export default {
     } else {
       res = {
         code: 5000,
-        msg: '查询资源列表失败！',
+        msg: ctx.__('L00012'),
         data: {}
       }
     }
@@ -75,26 +75,26 @@ export default {
       if (isSuccess) {
         res = {
           code: 200,
-          msg: '添加资源成功！',
+          msg: ctx.__('L00013'),
           data: resData
         }
       } else if (resData) {
         res = {
           code: 5000,
-          msg: '添加资源失败，该资源已存在！',
+          msg: ctx.__('L00014'),
           data: resData
         }
       } else {
         res = {
           code: 5000,
-          msg: '添加资源失败！',
+          msg: ctx.__('L00015'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: '添加资源失败，上送参数有误！',
+        msg: ctx.__('L00016'),
         data: {}
       }
     }
@@ -112,20 +112,20 @@ export default {
       if (res) {
         res = {
           code: 200,
-          msg: '删除资源成功！',
+          msg: ctx.__('L00017'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: '删除资源失败！',
+          msg: ctx.__('L00018'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: '删除资源失败，上送参数有误！',
+        msg: ctx.__('L00019'),
         data: {}
       }
     }
@@ -147,20 +147,20 @@ export default {
       if (res && res[0]) {
         res = {
           code: 200,
-          msg: '编辑资源成功！',
+          msg: ctx.__('L00020'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: '编辑资源失败！',
+          msg: ctx.__('L00021'),
           data: res
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: '编辑资源失败，上送参数有误！',
+        msg: ctx.__('L00022'),
         data: {}
       }
     }
@@ -195,7 +195,7 @@ export default {
       if (successArr.length + failArr.length === data.length) {
         res = {
           code: 200,
-          msg: '编辑资源成功！',
+          msg: ctx.__('L00023'),
           data: {
             success: successArr,
             fail: failArr
@@ -204,7 +204,7 @@ export default {
       } else {
         res = {
           code: 5000,
-          msg: '编辑资源失败！',
+          msg: ctx.__('L00024'),
           data: {
             success: successArr,
             fail: failArr
@@ -214,7 +214,7 @@ export default {
     } else {
       res = {
         code: 5001,
-        msg: '编辑资源失败，上送参数有误！',
+        msg: ctx.__('L00025'),
         data: {}
       }
     }

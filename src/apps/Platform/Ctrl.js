@@ -18,7 +18,7 @@ export default {
         // 执行平台内用户查询
         // 加密密码
         let password = utils.des.encrypt(config.system.secret, reqBody.password, 0)
-        console.log('password', password)
+        // console.log('password', password)
         res = await Model.user.doSignIn({
           account: reqBody.account,
           password: password
@@ -41,13 +41,13 @@ export default {
             data[config.cookie.getItem('token')] = token
             res = {
               code: 200,
-              msg: '登录成功！',
+              msg: ctx.__('L00001'),
               data: data
             }
           } else {
             res = {
               code: 5000,
-              msg: '登录失败，生成Token失败！',
+              msg: ctx.__('L00002'),
               data: data
             }
           }
@@ -56,14 +56,14 @@ export default {
           let adminInfo = await Model.user.getOneAdmin()
           res = {
             code: 5000,
-            msg: '登录失败！' + (adminInfo && adminInfo.account && adminInfo.name ? '请联系管理员 ' + adminInfo.name + ' (' + adminInfo.account + ')' : ''),
+            msg: ctx.__('L00003', [adminInfo.name, adminInfo.account]),
             data: data
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: '登录失败，上送参数有误！',
+          msg: ctx.__('L00004'),
           data: {}
         }
       }
@@ -82,20 +82,20 @@ export default {
         if (res) {
           res = {
             code: 200,
-            msg: '获取用户基本信息成功！',
+            msg: ctx.__('L00005'),
             data: res
           }
         } else {
           res = {
             code: 5000,
-            msg: '获取用户基本信息失败！',
+            msg: ctx.__('L00006'),
             data: res
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: '获取用户基本信息失败，上送参数有误！',
+          msg: ctx.__('L00007'),
           data: {}
         }
       }
@@ -136,7 +136,7 @@ export default {
         if (verifyFlag) {
           res = {
             code: 200,
-            msg: '鉴权成功！',
+            msg: ctx.__('L00008'),
             data: {
               verifyFlag,
               resources: userResources,
@@ -146,10 +146,9 @@ export default {
         } else {
           // 动态获取管理员
           let adminInfo = await Model.user.getOneAdmin()
-          let contactAdmin = adminInfo && adminInfo.account && adminInfo.name ? '请联系管理员：' + adminInfo.name + ' (' + adminInfo.account + ')' : ''
           res = {
             code: 200,
-            msg: '鉴权失败！' + contactAdmin,
+            msg: ctx.__('L00009', [adminInfo.name, adminInfo.account]),
             data: {
               verifyFlag
             }
@@ -158,42 +157,11 @@ export default {
       } else {
         res = {
           code: 5001,
-          msg: '鉴权失败，上送参数有误！',
+          msg: ctx.__('L00010'),
           data: {}
         }
       }
       ctx.body = res
-    }
-  },
-  components: {
-    getBingWallpaper: async (ctx, next) => {
-      await next()
-      let reqQuery = ctx.query
-      let bingApi = 'http://cn.bing.com/HPImageArchive.aspx'
-      console.log('reqQuery', reqQuery)
-      let payload = {
-        format: reqQuery.format || 'js',
-        idx: reqQuery.idx || 0,
-        n: reqQuery.n || 1
-      }
-      let res
-      try {
-        res = await axios.get(bingApi, {
-          params: payload
-        })
-        res = {
-          code: 200,
-          msg: '获取bing壁纸成功！',
-          data: res.data
-        }
-      } catch (err) {
-        res = {
-          code: 5000,
-          msg: '获取bing壁纸失败',
-          data: err
-        }
-      }
-      ctx.body = res || {}
     }
   },
   resource: {
@@ -206,7 +174,7 @@ export default {
       if (res) {
         res = {
           code: 200,
-          msg: '查询资源列表成功！',
+          msg: ctx.__('L00011'),
           data: {
             count: res.count,
             list: res.rows
@@ -215,7 +183,7 @@ export default {
       } else {
         res = {
           code: 5000,
-          msg: '查询资源列表失败！',
+          msg: ctx.__('L00012'),
           data: {}
         }
       }

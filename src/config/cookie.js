@@ -9,6 +9,7 @@ export default {
   keys: {
     account: 'account',
     token: 't',
+    locale: 'l',
     userType: 'user-type',
     userCode: 'user-code',
     secret: 'secret'

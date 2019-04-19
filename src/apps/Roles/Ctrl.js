@@ -16,7 +16,7 @@ export default {
     if (res) {
       res = {
         code: 200,
-        msg: '查询角色列表成功！',
+        msg: ctx.__('L00026'),
         data: {
           count: res.count,
           list: res.rows
@@ -25,7 +25,7 @@ export default {
     } else {
       res = {
         code: 5000,
-        msg: '查询角色列表失败！',
+        msg: ctx.__('L00027'),
         data: {}
       }
     }
@@ -43,7 +43,7 @@ export default {
     if (res) {
       res = {
         code: 200,
-        msg: '查询全部角色列表成功！',
+        msg: ctx.__('L00026'),
         data: {
           count: res.count,
           list: res.rows
@@ -52,7 +52,7 @@ export default {
     } else {
       res = {
         code: 5000,
-        msg: '查询全部角色列表失败！',
+        msg: ctx.__('L00027'),
         data: {}
       }
     }
@@ -85,26 +85,26 @@ export default {
       if (isSuccess) {
         res = {
           code: 200,
-          msg: '添加角色成功！',
+          msg: ctx.__('L00028'),
           data: resTitle
         }
       } else if (resTitle) {
         res = {
           code: 5000,
-          msg: '添加角色失败，该角色已存在！',
+          msg: ctx.__('L00029'),
           data: resTitle
         }
       } else {
         res = {
           code: 5000,
-          msg: '添加角色失败！',
+          msg: ctx.__('L00030'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: '添加角色失败，上送参数有误！',
+        msg: ctx.__('L00031'),
         data: {}
       }
     }
@@ -123,20 +123,20 @@ export default {
       if (res) {
         res = {
           code: 200,
-          msg: '删除角色成功！',
+          msg: ctx.__('L00032'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: '删除角色失败！',
+          msg: ctx.__('L00033'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: '删除角色失败，上送参数有误！',
+        msg: ctx.__('L00034'),
         data: {}
       }
     }
@@ -162,20 +162,20 @@ export default {
       if (res && res[0]) {
         res = {
           code: 200,
-          msg: '编辑角色成功！',
+          msg: ctx.__('L00035'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: '编辑角色失败！',
+          msg: ctx.__('L00036'),
           data: res
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: '编辑角色失败，上送参数有误！',
+        msg: ctx.__('L00037'),
         data: {}
       }
     }

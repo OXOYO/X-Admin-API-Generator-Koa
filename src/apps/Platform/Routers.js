@@ -12,6 +12,5 @@ export default (router) => {
     .get(namespace + 'user/BaseInfo', Ctrl.user.getBaseInfo)
     .get(namespace + 'user/access/verify', Ctrl.user.doVerifyAccess)
     // .post(namespace + 'user/logout', Ctrl.user.doLogout)
-    .get(namespace + 'components/wallpaper/bing', Ctrl.components.getBingWallpaper)
     .get(namespace + 'resource/list/all', Ctrl.resource.getAllResourceList)
 }

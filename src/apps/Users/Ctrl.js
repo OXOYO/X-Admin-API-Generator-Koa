@@ -16,7 +16,7 @@ export default {
     if (res) {
       res = {
         code: 200,
-        msg: '查询账号列表成功！',
+        msg: ctx.__('L00041'),
         data: {
           count: res.count,
           list: res.rows
@@ -25,7 +25,7 @@ export default {
     } else {
       res = {
         code: 5000,
-        msg: '查询账号列表失败！',
+        msg: ctx.__('L00042'),
         data: {}
       }
     }
@@ -53,26 +53,26 @@ export default {
       if (isSuccess) {
         res = {
           code: 200,
-          msg: '添加账号成功！',
+          msg: ctx.__('L00043'),
           data: resAccount
         }
       } else if (resAccount) {
         res = {
           code: 5000,
-          msg: '添加账号失败，该账号已存在！',
+          msg: ctx.__('L00044'),
           data: resAccount
         }
       } else {
         res = {
           code: 5000,
-          msg: '添加账号失败！',
+          msg: ctx.__('L00045'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: '添加账号失败，上送参数有误！',
+        msg: ctx.__('L00046'),
         data: {}
       }
     }
@@ -91,20 +91,20 @@ export default {
       if (res) {
         res = {
           code: 200,
-          msg: '删除账号成功！',
+          msg: ctx.__('L00047'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: '删除账号失败！',
+          msg: ctx.__('L00048'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: '删除账号失败，上送参数有误！',
+        msg: ctx.__('L00049'),
         data: {}
       }
     }
@@ -127,20 +127,20 @@ export default {
       if (res && res[0]) {
         res = {
           code: 200,
-          msg: '编辑账号成功！',
+          msg: ctx.__('L00050'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: '编辑账号失败！',
+          msg: ctx.__('L00051'),
           data: res
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: '编辑账号失败，上送参数有误！',
+        msg: ctx.__('L00052'),
         data: {}
       }
     }
