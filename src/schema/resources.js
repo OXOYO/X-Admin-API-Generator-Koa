@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.STRING(500),
-      allowNull: false
+      allowNull: true
     },
     parent_id: {
       type: DataTypes.INTEGER(11),
