@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-04-15 09:59:41
+-- 生成日期： 2019-04-22 10:03:00
 -- 服务器版本： 5.7.24
 -- PHP 版本： 7.2.14
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `icon` varchar(50) DEFAULT NULL COMMENT '资源图标',
   `title` varchar(50) NOT NULL COMMENT '资源标题（中文/英文）',
   `lang` varchar(32) NOT NULL COMMENT 'title对应的语言包key',
-  `description` varchar(500) NOT NULL COMMENT '描述',
+  `description` varchar(500) DEFAULT NULL COMMENT '描述',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '父ID，一级节点父ID为空',
   `num` int(11) NOT NULL DEFAULT '1' COMMENT '序号',
   `position` varchar(32) CHARACTER SET ucs2 NOT NULL COMMENT '挂载位置：home 前台隐式 home-nav 前台导航 admin 后台隐式 admin-nav 后台导航 admin-sidebar 后台侧边栏',
@@ -61,10 +61,10 @@ INSERT INTO `resources` (`id`, `name`, `dir`, `icon`, `title`, `lang`, `descript
 (2, 'platform.admin.Users', 'Users', 'md-people', '用户管理', 'R00002', '', 7, 1, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
 (3, 'platform.admin.Resources', 'Resources', 'md-cube', '资源管理', 'R00003', '', 7, 2, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
 (4, 'platform.admin.Roles', 'Roles', 'md-shirt', '角色管理', 'R00004', '', 7, 3, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(5, 'platform.home.SigIn', 'SignIn', '', '登录', 'R00005', '', 0, 0, 'home-nav', 'module-system', '', 0, '', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(6, 'platform.home.About', 'About', '', '关于', 'R00006', '', 0, 0, 'home-nav', 'module-system', '', 0, '', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(7, 'platform.admin.System', 'System', 'md-settings', '系统管理', 'R00007', '', 0, 1, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
-(8, 'platform.admin.DemoApp', 'DemoApp', 'md-apps', 'DemoApp', '', '', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(5, 'platform.home.SigIn', 'SignIn', '', '登录', 'R00005', '', 0, 0, 'home-nav', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-22 06:31:17'),
+(6, 'platform.home.About', 'About', '', '关于', 'R00006', '', 0, 0, 'home-nav', 'module-system', '', 0, '0', 0, '2019-04-08 00:00:00', '2019-04-22 06:31:20'),
+(7, 'platform.admin.System', 'System', 'md-settings', '系统管理', 'R00007', '', 0, 1, 'admin-sidebar', 'module-system', '', 0, '0', 1, '2019-04-08 00:00:00', '2019-04-22 06:31:37'),
+(8, 'platform.admin.DemoApp', 'DemoApp', 'md-apps', 'DemoApp', '', 'DemoApp', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-19 02:06:38'),
 (9, 'platform.admin.SystemLog', 'SystemLog', 'md-document', '系统日志', 'R00008', '', 7, 4, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00');
 
 -- --------------------------------------------------------
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
 --
 
 INSERT INTO `user_group` (`id`, `name`, `description`, `status`, `resource_id`, `permission`, `create_user_id`, `create_time`, `update_time`) VALUES
-(1, '管理员组', '', 1, '2,3,4', '2|0|1,3|0,4|0|1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00');
+(1, '管理员组', '', 1, '7,2,3,4', '7|0,2|0|1,3|0,4|0|1', 1, '2019-04-08 00:00:00', '2019-04-22 06:49:28');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
