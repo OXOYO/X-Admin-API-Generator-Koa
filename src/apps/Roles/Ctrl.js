@@ -156,7 +156,7 @@ export default {
       data['resource_id'] = reqBody.resource_id.join(',')
     }
     let res
-    if (data.title) {
+    if (data.name) {
       res = await Model.doEditRole(data)
       // 处理结果
       if (res && res[0]) {
