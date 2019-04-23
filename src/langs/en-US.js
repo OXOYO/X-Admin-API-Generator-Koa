@@ -56,5 +56,6 @@ module.exports = {
   L00049: 'Deleting the account failed, the sending parameters are incorrect! ',
   L00050: 'Edit account successfully! ',
   L00051: 'Edit account failed! ',
-  L00052: 'Edit account failed, the parameters sent incorrectly! '
+  L00052: 'Edit account failed, the parameters sent incorrectly! ',
+  L00053: 'Edit account failed, the account already exists! '
 }
