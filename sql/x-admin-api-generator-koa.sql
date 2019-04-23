@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-04-22 10:03:00
+-- 生成日期： 2019-04-23 07:39:25
 -- 服务器版本： 5.7.24
 -- PHP 版本： 7.2.14
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='资源表';
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='资源表';
 
 --
 -- 转存表中的数据 `resources`
@@ -65,7 +65,8 @@ INSERT INTO `resources` (`id`, `name`, `dir`, `icon`, `title`, `lang`, `descript
 (6, 'platform.home.About', 'About', '', '关于', 'R00006', '', 0, 0, 'home-nav', 'module-system', '', 0, '0', 0, '2019-04-08 00:00:00', '2019-04-22 06:31:20'),
 (7, 'platform.admin.System', 'System', 'md-settings', '系统管理', 'R00007', '', 0, 1, 'admin-sidebar', 'module-system', '', 0, '0', 1, '2019-04-08 00:00:00', '2019-04-22 06:31:37'),
 (8, 'platform.admin.DemoApp', 'DemoApp', 'md-apps', 'DemoApp', '', 'DemoApp', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-19 02:06:38'),
-(9, 'platform.admin.SystemLog', 'SystemLog', 'md-document', '系统日志', 'R00008', '', 7, 4, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00');
+(9, 'platform.admin.SystemLog', 'SystemLog', 'md-document', '系统日志', 'R00008', '', 7, 4, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
+(10, 'platform.admin.Settings', 'Settings', 'md-settings', '设置', 'R00009', NULL, 7, 0, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-23 01:07:24', '2019-04-23 01:31:29');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `account`, `password`, `name`, `type`, `group_id`, `status`, `create_user_id`, `create_time`, `update_time`) VALUES
 (1, 'root', '0/+hkMxwgGs=', '超级管理员', 0, NULL, 1, 0, '2017-07-20 09:18:04', '2017-11-16 09:26:58'),
-(2, 'admin', '0/+hkMxwgGs=', '管理员', 1, '1', 1, 1, '2019-04-08 16:44:00', '2019-04-08 16:44:00');
+(2, 'admin', '0/+hkMxwgGs=', '管理员', 1, '1', 1, 1, '2019-04-08 16:44:00', '2019-04-23 07:39:06');
 
 -- --------------------------------------------------------
 
