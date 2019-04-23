@@ -2,7 +2,6 @@
  * Created by OXOYO on 2017/10/27.
  */
 
-import axios from 'axios'
 import Model from './Model'
 import utils from '../../utils/'
 import config from '../../config'
@@ -14,7 +13,7 @@ export default {
       await next()
       let reqBody = ctx.request.body
       let res
-      if (reqBody && reqBody.account && reqBody.password) {
+      if (reqBody.account && reqBody.password) {
         // 执行平台内用户查询
         // 加密密码
         let password = utils.des.encrypt(config.system.secret, reqBody.password, 0)
@@ -106,7 +105,7 @@ export default {
       let reqQuery = ctx.query
       let userInfo = ctx.state.userInfo
       // 资源名称
-      let resourceName = reqQuery.name || ''
+      let resourceName = reqQuery.name
       let res
       if (userInfo && userInfo.userId && resourceName) {
         let verifyFlag = false

@@ -76,7 +76,7 @@ export default {
       data['resource_id'] = reqBody.resource_id.join(',')
     }
     let res
-    if (data.title) {
+    if (data.name) {
       res = await Model.doAddRole(data)
       // 最后一项为插入成功与否标识
       let [resTitle] = res
@@ -156,7 +156,7 @@ export default {
       data['resource_id'] = reqBody.resource_id.join(',')
     }
     let res
-    if (data.name) {
+    if (data.id) {
       res = await Model.doEditRole(data)
       // 处理结果
       if (res && res[0]) {

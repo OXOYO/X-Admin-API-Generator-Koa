@@ -31,6 +31,10 @@ export default {
         $in: statusInArr
       }
     }
+    // 处理position
+    if (data.position) {
+      whereObj['position'] = db.literal('instr(concat(\',\', resources.position, \',\'), concat(\',\', \'' + data.position + '\', \',\')) > 0')
+    }
     // 处理资源类别
     let typeInArr = data.type || []
     if (typeInArr.length) {

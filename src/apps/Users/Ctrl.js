@@ -121,7 +121,7 @@ export default {
       update_time: timeNow
     }
     let res
-    if (data.account && data.name) {
+    if (data.id) {
       res = await Model.doEditUser(data)
       // 处理结果
       if (res && res[0]) {
