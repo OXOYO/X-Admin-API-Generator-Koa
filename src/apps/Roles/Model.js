@@ -120,7 +120,7 @@ export default {
   doAddRole: async function (data) {
     let res = await userGroupSchema.findOrCreate({
       where: {
-        title: data.title
+        name: data.name
       },
       defaults: data,
       logging: true

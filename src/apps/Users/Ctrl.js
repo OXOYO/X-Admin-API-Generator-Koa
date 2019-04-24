@@ -3,6 +3,8 @@
  */
 
 import Model from './Model'
+import utils from '../../utils'
+import config from '../../config'
 
 export default {
   // 获取账号列表
@@ -14,6 +16,10 @@ export default {
     let res = await Model.getUserList(reqQuery, userInfo)
     // 处理结果
     if (res) {
+      // 密码解码
+      for (let i = 0, len = res.rows.length; i < len; i++) {
+        res.rows[i].password = utils.des.decrypt(config.system.secret, res.rows[i].password, 0)
+      }
       res = {
         code: 200,
         msg: ctx.__('L00041'),
@@ -37,9 +43,12 @@ export default {
     await next()
     // 查询结果
     let reqBody = ctx.request.body
+    let userInfo = ctx.state.userInfo
     let timeNow = new Date()
     let data = {
       ...reqBody,
+      password: utils.des.encrypt(config.system.secret, reqBody.password, 0),
+      create_user_id: userInfo.userId,
       create_time: timeNow,
       update_time: timeNow
     }
@@ -118,6 +127,7 @@ export default {
     let timeNow = new Date()
     let data = {
       ...reqBody,
+      password: utils.des.encrypt(config.system.secret, reqBody.password, 0),
       update_time: timeNow
     }
     let res
