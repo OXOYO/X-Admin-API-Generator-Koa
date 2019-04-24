@@ -9,4 +9,5 @@ const namespace = '/Settings/'
 export default (router) => {
   router
     .post(namespace + 'Profile/edit', Ctrl.Profile.doEdit)
+    .post(namespace + 'Account/edit', Ctrl.Account.doEdit)
 }

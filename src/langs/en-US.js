@@ -57,5 +57,18 @@ module.exports = {
   L00050: 'Edit account successfully! ',
   L00051: 'Edit account failed! ',
   L00052: 'Edit account failed, the parameters sent incorrectly! ',
-  L00053: 'Edit account failed, the account already exists! '
+  L00053: 'Edit your profile successfully! ',
+  L00054: 'Editing personal data failed! ',
+  L00055: 'Editing profile failed, the account already exists! ',
+  L00056: 'Editing profile failed, login status is abnormal! ',
+  L00057: 'Editing the profile failed, the sending parameters are incorrect! ',
+  L00058: 'Change password successfully! ',
+  L00059: 'Change password failed! ',
+  L00060: 'The password change failed, the old password is incorrect! ',
+  L00061: 'The password change failed, the login status is abnormal! ',
+  L00062: 'The password change failed. The parameters sent are incorrect! ',
+  L00063: 'The password change failed. The confirmation password is inconsistent with the new password! ',
+  L00064: 'The password change failed. The new password cannot be the same as the old password! ',
+  L00065: 'The password change failed. The confirmation password is inconsistent with the new password! ',
+  L00066: 'The password change failed. Please enter a numeric combination of 6 to 12 digits! '
 }
