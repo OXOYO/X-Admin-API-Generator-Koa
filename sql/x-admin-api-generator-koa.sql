@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-04-24 09:49:55
+-- 生成日期： 2019-04-25 09:55:48
 -- 服务器版本： 5.7.24
 -- PHP 版本： 7.2.14
 
@@ -68,6 +68,65 @@ INSERT INTO `resources` (`id`, `name`, `dir`, `icon`, `title`, `lang`, `descript
 (9, 'platform.admin.SystemLog', 'SystemLog', 'md-document', '系统日志', 'R00008', '', 7, 4, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
 (10, 'platform.admin.Settings', 'Settings', 'md-settings', '设置', 'R00009', NULL, 7, 0, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-23 01:07:24', '2019-04-23 01:31:29'),
 (11, 'platform.admin.TODO', 'TODO', 'md-list', 'TODO', 'R00011', '', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-24 09:47:50', '2019-04-24 09:47:50');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `todo_category`
+--
+
+DROP TABLE IF EXISTS `todo_category`;
+CREATE TABLE IF NOT EXISTS `todo_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '分类ID',
+  `name` varchar(32) NOT NULL COMMENT '分类名称',
+  `description` varchar(100) NOT NULL COMMENT '描述',
+  `theme` varchar(7) NOT NULL DEFAULT '#3e69e4' COMMENT '主题色',
+  `create_user_id` int(11) NOT NULL COMMENT '创建者',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='任务类别';
+
+--
+-- 转存表中的数据 `todo_category`
+--
+
+INSERT INTO `todo_category` (`id`, `name`, `description`, `theme`, `create_user_id`, `create_time`, `update_time`) VALUES
+(1, '任务', '默认分类，禁止删除。', '#3e69e4', 0, '2019-04-25 00:00:00', '2019-04-25 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `todo_task`
+--
+
+DROP TABLE IF EXISTS `todo_task`;
+CREATE TABLE IF NOT EXISTS `todo_task` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '任务ID',
+  `content` varchar(200) NOT NULL COMMENT '内容',
+  `remarks` varchar(500) DEFAULT NULL COMMENT '备注',
+  `expire` datetime DEFAULT NULL COMMENT '到期时间',
+  `category_id` int(11) NOT NULL COMMENT '分类ID',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态：0 未完成 1 完成',
+  `star` tinyint(1) NOT NULL DEFAULT '0' COMMENT '星级：0~5级',
+  `create_user_id` int(11) NOT NULL COMMENT '创建者ID',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='任务列表';
+
+--
+-- 转存表中的数据 `todo_task`
+--
+
+INSERT INTO `todo_task` (`id`, `content`, `remarks`, `expire`, `category_id`, `status`, `star`, `create_user_id`, `create_time`, `update_time`) VALUES
+(1, '测试', '测试备注', '2019-04-25 00:00:00', 0, 1, 0, 1, '2019-04-25 16:58:00', '2019-04-25 09:54:31'),
+(2, '测试001', NULL, NULL, 1, 0, 0, 1, '2019-04-25 09:27:15', '2019-04-25 09:54:29'),
+(3, '测试002', NULL, NULL, 1, 0, 0, 1, '2019-04-25 09:28:00', '2019-04-25 09:28:00'),
+(4, '测试003', NULL, NULL, 1, 0, 0, 1, '2019-04-25 09:31:06', '2019-04-25 09:31:06'),
+(5, '测试003', NULL, NULL, 1, 0, 0, 1, '2019-04-25 09:32:45', '2019-04-25 09:32:45'),
+(6, '测试004', NULL, NULL, 1, 0, 0, 1, '2019-04-25 09:32:49', '2019-04-25 09:32:49'),
+(7, '测试005', NULL, NULL, 1, 0, 0, 1, '2019-04-25 09:53:35', '2019-04-25 09:53:35');
 
 -- --------------------------------------------------------
 
