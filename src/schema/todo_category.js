@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: true
     },
     theme: {
       type: DataTypes.STRING(7),
