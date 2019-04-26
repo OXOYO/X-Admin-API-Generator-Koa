@@ -46,8 +46,8 @@ export default {
         whereObj['star'] = data.star
       }
       // 处理分类
-      if (data.category !== undefined) {
-        whereObj['category_id'] = data.category
+      if (data.category_id !== undefined) {
+        whereObj['category_id'] = data.category_id
       }
       // 处理创建者
       if (userInfo) {
@@ -94,7 +94,7 @@ export default {
         logging: true
       })
       return res
-    },
+    }
   },
   Category: {
     getList: async (data, userInfo) => {
