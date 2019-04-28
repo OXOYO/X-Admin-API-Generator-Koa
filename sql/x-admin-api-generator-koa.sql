@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-04-26 10:36:33
+-- 生成日期： 2019-04-28 10:04:20
 -- 服务器版本： 5.7.24
 -- PHP 版本： 7.2.14
 
@@ -23,6 +23,118 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `x-admin-api-generator-koa` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `x-admin-api-generator-koa`;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `blog_category`
+--
+
+DROP TABLE IF EXISTS `blog_category`;
+CREATE TABLE IF NOT EXISTS `blog_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '分类ID',
+  `name` varchar(50) NOT NULL COMMENT '分类名称',
+  `alias` varchar(50) DEFAULT NULL COMMENT '分类别名',
+  `description` varchar(100) DEFAULT NULL COMMENT '描述',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态：0停用 1启用',
+  `create_user_id` int(11) NOT NULL COMMENT '创建者',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文章分类';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `blog_draft`
+--
+
+DROP TABLE IF EXISTS `blog_draft`;
+CREATE TABLE IF NOT EXISTS `blog_draft` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '文章ID',
+  `title` varchar(50) NOT NULL COMMENT '文章标题',
+  `content` varchar(2000) NOT NULL COMMENT '文章内容',
+  `excerpt` varchar(100) DEFAULT NULL COMMENT '摘要',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态：0私有 1公开',
+  `like_id` int(11) NOT NULL COMMENT '点赞统计ID',
+  `view_id` int(11) NOT NULL COMMENT '访问统计ID',
+  `create_user_id` int(11) NOT NULL COMMENT '创建者',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='草稿箱';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `blog_like`
+--
+
+DROP TABLE IF EXISTS `blog_like`;
+CREATE TABLE IF NOT EXISTS `blog_like` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '点赞ID',
+  `article_id` int(11) NOT NULL COMMENT '文章ID',
+  `create_user_id` int(11) NOT NULL COMMENT '创建者',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='点赞统计表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `blog_public`
+--
+
+DROP TABLE IF EXISTS `blog_public`;
+CREATE TABLE IF NOT EXISTS `blog_public` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '文章ID',
+  `title` varchar(50) NOT NULL COMMENT '文章标题',
+  `content` varchar(2000) NOT NULL COMMENT '文章内容',
+  `excerpt` varchar(100) DEFAULT NULL COMMENT '摘要',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态：0私有 1公开',
+  `like_id` int(11) NOT NULL COMMENT '点赞统计ID',
+  `view_id` int(11) NOT NULL COMMENT '访问统计ID',
+  `create_user_id` int(11) NOT NULL COMMENT '创建者',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='已发布文章';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `blog_tag`
+--
+
+DROP TABLE IF EXISTS `blog_tag`;
+CREATE TABLE IF NOT EXISTS `blog_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '标签ID',
+  `name` varchar(50) NOT NULL COMMENT '标签名称',
+  `alias` varchar(50) DEFAULT NULL COMMENT '标签别名',
+  `description` varchar(100) DEFAULT NULL COMMENT '描述',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态：0停用 1启用',
+  `create_user_id` int(11) NOT NULL COMMENT '创建者',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文章标签';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `blog_view`
+--
+
+DROP TABLE IF EXISTS `blog_view`;
+CREATE TABLE IF NOT EXISTS `blog_view` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '访问ID',
+  `article_id` int(11) NOT NULL COMMENT '文章ID',
+  `create_user_id` int(11) NOT NULL COMMENT '创建者',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='访问统计表';
 
 -- --------------------------------------------------------
 
@@ -50,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='资源表';
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='资源表';
 
 --
 -- 转存表中的数据 `resources`
@@ -67,7 +179,9 @@ INSERT INTO `resources` (`id`, `name`, `dir`, `icon`, `title`, `lang`, `descript
 (8, 'platform.admin.DemoApp', 'DemoApp', 'md-apps', 'DemoApp', 'R00010', 'DemoApp', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-24 09:46:37'),
 (9, 'platform.admin.SystemLog', 'SystemLog', 'md-document', '系统日志', 'R00008', '', 7, 4, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-08 00:00:00', '2019-04-08 00:00:00'),
 (10, 'platform.admin.Settings', 'Settings', 'md-settings', '设置', 'R00009', NULL, 7, 0, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-23 01:07:24', '2019-04-23 01:31:29'),
-(11, 'platform.admin.TODO', 'TODO', 'md-list', 'TODO', 'R00011', '', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-24 09:47:50', '2019-04-24 09:47:50');
+(11, 'platform.admin.TODO', 'TODO', 'md-list', 'TODO', 'R00011', '', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-24 09:47:50', '2019-04-24 09:47:50'),
+(12, 'platform.admin.Blog', 'AdminBlog', 'md-create', 'Blog', 'R00012', '', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-28 08:34:47', '2019-04-28 08:42:56'),
+(13, 'platform.home.Blog', 'HomeBlog', 'md-create', 'Blog', 'R00012', '', 0, 1, 'home-nav', 'module-app', '', 0, '0', 1, '2019-04-28 08:41:41', '2019-04-28 08:42:42');
 
 -- --------------------------------------------------------
 
