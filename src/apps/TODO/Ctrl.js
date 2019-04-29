@@ -219,7 +219,7 @@ export default {
 
       ctx.body = res
     },
-    // 编辑任务
+    // 编辑分类
     doEdit: async (ctx, next) => {
       await next()
       let reqBody = ctx.request.body
@@ -255,7 +255,7 @@ export default {
 
       ctx.body = res
     },
-    // 删除任务
+    // 删除分类
     doRemove: async (ctx, next) => {
       await next()
       let reqBody = ctx.request.body
