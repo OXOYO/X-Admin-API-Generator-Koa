@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-04-28 10:04:20
+-- 生成日期： 2019-04-29 08:02:55
 -- 服务器版本： 5.7.24
 -- PHP 版本： 7.2.14
 
@@ -41,7 +41,14 @@ CREATE TABLE IF NOT EXISTS `blog_category` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文章分类';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='文章分类';
+
+--
+-- 转存表中的数据 `blog_category`
+--
+
+INSERT INTO `blog_category` (`id`, `name`, `alias`, `description`, `status`, `create_user_id`, `create_time`, `update_time`) VALUES
+(1, 'F2E', '', '', 1, 1, '2019-04-29 03:12:46', '2019-04-29 03:14:13');
 
 -- --------------------------------------------------------
 
@@ -118,7 +125,14 @@ CREATE TABLE IF NOT EXISTS `blog_tag` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文章标签';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='文章标签';
+
+--
+-- 转存表中的数据 `blog_tag`
+--
+
+INSERT INTO `blog_tag` (`id`, `name`, `alias`, `description`, `status`, `create_user_id`, `create_time`, `update_time`) VALUES
+(1, 'Javascript', '', '', 1, 1, '2019-04-29 03:22:18', '2019-04-29 03:22:18');
 
 -- --------------------------------------------------------
 
@@ -162,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='资源表';
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='资源表';
 
 --
 -- 转存表中的数据 `resources`
@@ -181,7 +195,9 @@ INSERT INTO `resources` (`id`, `name`, `dir`, `icon`, `title`, `lang`, `descript
 (10, 'platform.admin.Settings', 'Settings', 'md-settings', '设置', 'R00009', NULL, 7, 0, 'admin-sidebar', 'module-system', '', 0, '0,1', 1, '2019-04-23 01:07:24', '2019-04-23 01:31:29'),
 (11, 'platform.admin.TODO', 'TODO', 'md-list', 'TODO', 'R00011', '', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-24 09:47:50', '2019-04-24 09:47:50'),
 (12, 'platform.admin.Blog', 'AdminBlog', 'md-create', 'Blog', 'R00012', '', 0, 1, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-28 08:34:47', '2019-04-28 08:42:56'),
-(13, 'platform.home.Blog', 'HomeBlog', 'md-create', 'Blog', 'R00012', '', 0, 1, 'home-nav', 'module-app', '', 0, '0', 1, '2019-04-28 08:41:41', '2019-04-28 08:42:42');
+(13, 'platform.home.Blog', 'HomeBlog', 'md-create', 'Blog', 'R00012', '', 0, 1, 'home-nav', 'module-app', '', 0, '0', 1, '2019-04-28 08:41:41', '2019-04-28 08:42:42'),
+(14, 'platform.admin.AdminBlogCategory', 'AdminBlogCategory', 'md-list', '分类管理', 'R00013', NULL, 12, 0, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-29 01:46:26', '2019-04-29 06:48:46'),
+(15, 'platform.admin.AdminBlogTag', 'AdminBlogTag', 'md-bookmark', '标签管理', 'R00014', NULL, 12, 0, 'admin-sidebar', 'module-app', '', 0, '0,1', 1, '2019-04-29 03:20:03', '2019-04-29 06:46:51');
 
 -- --------------------------------------------------------
 
