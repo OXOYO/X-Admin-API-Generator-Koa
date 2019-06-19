@@ -3,15 +3,19 @@
  */
 
 import Sequelize from 'sequelize'
-import config from './config'
+import { db as dbConfig } from './config'
+
+
+// 环境
+let evn = process.env.NODE_ENV === 'development' ? 'development' : 'production'
 
 const db = new Sequelize(
-  config.db.database,
-  config.db.username,
-  config.db.password,
+  dbConfig[env].database,
+  dbConfig[env].username,
+  dbConfig[env].password,
   {
-    host: config.db.host,
-    port: config.db.port,
+    host: dbConfig[env].host,
+    port: dbConfig[env].port,
     dialect: 'mysql',
     dialectOptions: {
       charset: 'utf8'

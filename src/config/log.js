@@ -12,6 +12,8 @@ export default {
   },
   // 配置
   options: {
+    // FIXME 线上使用pm2管理服务时启用，用于解决log4js在pm2下日志丢失问题
+    pm2: false,
     appenders: {
       default: {
         type: 'dateFile',

@@ -8,7 +8,7 @@ module.exports = {
     {
       name: 'x-admin-api-generator-koa',
       script: './dist/server.js',
-      watch: true,
+      instances: 'max',
       env: {
         NODE_ENV: 'development'
       },

@@ -5,10 +5,20 @@
  */
 
 export default {
-  host: 'localhost',
-  port: 3306,
-  username: 'root',
-  password: '',
-  database: 'x-admin-api-generator-koa',
-  prefix: ''
+  // 开发环境
+  development: {
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: '',
+    database: 'x-admin-api-generator-koa'
+  },
+  // 正式环境
+  production: {
+    host: '',
+    port: 3306,
+    username: '',
+    password: '',
+    database: ''
+  }
 }
