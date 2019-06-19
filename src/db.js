@@ -7,7 +7,7 @@ import { db as dbConfig } from './config'
 
 
 // 环境
-let evn = process.env.NODE_ENV === 'development' ? 'development' : 'production'
+let env = process.env.NODE_ENV === 'development' ? 'development' : 'production'
 
 const db = new Sequelize(
   dbConfig[env].database,
