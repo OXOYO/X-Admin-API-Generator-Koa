@@ -8,6 +8,14 @@
 [![codebeat badge](https://codebeat.co/badges/824b49d9-dd7f-4502-9965-76aef840f8d2)](https://codebeat.co/projects/github-com-oxoyo-x-admin-api-generator-koa-master)
 [![license](https://img.shields.io/github/license/OXOYO/X-Admin-API-Generator-Koa.svg)]()
 
+## 预览
+
+[online](http://oxoyo.co/X-Admin-Generator-Vue/)
+
+超级管理员：root 123123
+
+管理员：admin 123123
+
 ## 开始
 ```bash
   git clone
