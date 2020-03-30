@@ -18,7 +18,7 @@ export default {
       if (res) {
         res = {
           code: 200,
-          msg: ctx.__('L00067'),
+          msg: ctx.__('L0007001'),
           data: {
             count: res.count,
             list: res.rows
@@ -27,11 +27,10 @@ export default {
       } else {
         res = {
           code: 5000,
-          msg: ctx.__('L00068'),
+          msg: ctx.__('L0007002'),
           data: {}
         }
       }
-
       ctx.body = res
     },
     // 添加任务
@@ -54,20 +53,20 @@ export default {
         if (res) {
           res = {
             code: 200,
-            msg: ctx.__('L00069'),
+            msg: ctx.__('L0007003'),
             data: res
           }
         } else {
           res = {
             code: 5000,
-            msg: ctx.__('L00070'),
+            msg: ctx.__('L0007004'),
             data: {}
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00071'),
+          msg: ctx.__('L0007005'),
           data: {}
         }
       }
@@ -90,20 +89,20 @@ export default {
         if (res && res[0]) {
           res = {
             code: 200,
-            msg: ctx.__('L00072'),
+            msg: ctx.__('L0007006'),
             data: res
           }
         } else {
           res = {
             code: 5000,
-            msg: ctx.__('L00073'),
+            msg: ctx.__('L0007007'),
             data: res
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00074'),
+          msg: ctx.__('L0007008'),
           data: {}
         }
       }
@@ -122,20 +121,20 @@ export default {
         if (res) {
           res = {
             code: 200,
-            msg: ctx.__('L00075'),
+            msg: ctx.__('L0007009'),
             data: res
           }
         } else {
           res = {
             code: 5000,
-            msg: ctx.__('L00076'),
+            msg: ctx.__('L0007010'),
             data: {}
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00077'),
+          msg: ctx.__('L0007011'),
           data: {}
         }
       }
@@ -155,7 +154,7 @@ export default {
       if (res) {
         res = {
           code: 200,
-          msg: ctx.__('L00078'),
+          msg: ctx.__('L0007012'),
           data: {
             count: res.count,
             list: res.rows
@@ -164,7 +163,7 @@ export default {
       } else {
         res = {
           code: 5000,
-          msg: ctx.__('L00079'),
+          msg: ctx.__('L0007013'),
           data: {}
         }
       }
@@ -193,26 +192,26 @@ export default {
         if (isSuccess) {
           res = {
             code: 200,
-            msg: ctx.__('L00080'),
+            msg: ctx.__('L0007014'),
             data: resTitle
           }
         } else if (resTitle) {
           res = {
             code: 5000,
-            msg: ctx.__('L00081'),
+            msg: ctx.__('L0007015'),
             data: resTitle
           }
         } else {
           res = {
             code: 5000,
-            msg: ctx.__('L00082'),
+            msg: ctx.__('L0007016'),
             data: {}
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00071'),
+          msg: ctx.__('L0007017'),
           data: {}
         }
       }
@@ -235,20 +234,20 @@ export default {
         if (res && res[0]) {
           res = {
             code: 200,
-            msg: ctx.__('L00083'),
+            msg: ctx.__('L0007018'),
             data: res
           }
         } else {
           res = {
             code: 5000,
-            msg: ctx.__('L00084'),
+            msg: ctx.__('L0007019'),
             data: res
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00085'),
+          msg: ctx.__('L0007020'),
           data: {}
         }
       }
@@ -267,20 +266,20 @@ export default {
         if (res) {
           res = {
             code: 200,
-            msg: ctx.__('L00086'),
+            msg: ctx.__('L0007021'),
             data: res
           }
         } else {
           res = {
             code: 5000,
-            msg: ctx.__('L00087'),
+            msg: ctx.__('L0007022'),
             data: {}
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00088'),
+          msg: ctx.__('L0007023'),
           data: {}
         }
       }

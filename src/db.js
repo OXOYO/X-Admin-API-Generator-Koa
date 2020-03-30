@@ -5,7 +5,6 @@
 import Sequelize from 'sequelize'
 import { db as dbConfig } from './config'
 
-
 // 环境
 let env = process.env.NODE_ENV === 'development' ? 'development' : 'production'
 

@@ -40,13 +40,13 @@ export default {
             data[config.cookie.getItem('token')] = token
             res = {
               code: 200,
-              msg: ctx.__('L00001'),
+              msg: ctx.__('L0001001'),
               data: data
             }
           } else {
             res = {
               code: 5000,
-              msg: ctx.__('L00002'),
+              msg: ctx.__('L0001002'),
               data: data
             }
           }
@@ -55,14 +55,14 @@ export default {
           let adminInfo = await Model.user.getOneAdmin()
           res = {
             code: 5000,
-            msg: ctx.__('L00003', [adminInfo.name, adminInfo.account]),
+            msg: ctx.__('L0001003', [adminInfo.name, adminInfo.account]),
             data: data
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00004'),
+          msg: ctx.__('L0001004'),
           data: {}
         }
       }
@@ -81,20 +81,20 @@ export default {
         if (res) {
           res = {
             code: 200,
-            msg: ctx.__('L00005'),
+            msg: ctx.__('L0001005'),
             data: res
           }
         } else {
           res = {
             code: 5000,
-            msg: ctx.__('L00006'),
+            msg: ctx.__('L0001006'),
             data: res
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00007'),
+          msg: ctx.__('L0001007'),
           data: {}
         }
       }
@@ -135,7 +135,7 @@ export default {
         if (verifyFlag) {
           res = {
             code: 200,
-            msg: ctx.__('L00008'),
+            msg: ctx.__('L0001008'),
             data: {
               verifyFlag,
               resources: userResources,
@@ -147,7 +147,7 @@ export default {
           let adminInfo = await Model.user.getOneAdmin()
           res = {
             code: 200,
-            msg: ctx.__('L00009', [adminInfo.name, adminInfo.account]),
+            msg: ctx.__('L0001009', [adminInfo.name, adminInfo.account]),
             data: {
               verifyFlag
             }
@@ -156,7 +156,7 @@ export default {
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00010'),
+          msg: ctx.__('L0001010'),
           data: {}
         }
       }
@@ -173,7 +173,7 @@ export default {
       if (res) {
         res = {
           code: 200,
-          msg: ctx.__('L00011'),
+          msg: ctx.__('L0001011'),
           data: {
             count: res.count,
             list: res.rows
@@ -182,7 +182,7 @@ export default {
       } else {
         res = {
           code: 5000,
-          msg: ctx.__('L00012'),
+          msg: ctx.__('L0001012'),
           data: {}
         }
       }

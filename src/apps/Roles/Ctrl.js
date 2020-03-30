@@ -16,7 +16,7 @@ export default {
     if (res) {
       res = {
         code: 200,
-        msg: ctx.__('L00026'),
+        msg: ctx.__('L0003001'),
         data: {
           count: res.count,
           list: res.rows
@@ -25,7 +25,7 @@ export default {
     } else {
       res = {
         code: 5000,
-        msg: ctx.__('L00027'),
+        msg: ctx.__('L0003002'),
         data: {}
       }
     }
@@ -43,7 +43,7 @@ export default {
     if (res) {
       res = {
         code: 200,
-        msg: ctx.__('L00026'),
+        msg: ctx.__('L0003001'),
         data: {
           count: res.count,
           list: res.rows
@@ -52,7 +52,7 @@ export default {
     } else {
       res = {
         code: 5000,
-        msg: ctx.__('L00027'),
+        msg: ctx.__('L0003002'),
         data: {}
       }
     }
@@ -85,26 +85,26 @@ export default {
       if (isSuccess) {
         res = {
           code: 200,
-          msg: ctx.__('L00028'),
+          msg: ctx.__('L0003003'),
           data: resTitle
         }
       } else if (resTitle) {
         res = {
           code: 5000,
-          msg: ctx.__('L00029'),
+          msg: ctx.__('L0003004'),
           data: resTitle
         }
       } else {
         res = {
           code: 5000,
-          msg: ctx.__('L00030'),
+          msg: ctx.__('L0003005'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: ctx.__('L00031'),
+        msg: ctx.__('L0003006'),
         data: {}
       }
     }
@@ -123,20 +123,20 @@ export default {
       if (res) {
         res = {
           code: 200,
-          msg: ctx.__('L00032'),
+          msg: ctx.__('L0003007'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: ctx.__('L00033'),
+          msg: ctx.__('L0003008'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: ctx.__('L00034'),
+        msg: ctx.__('L0003009'),
         data: {}
       }
     }
@@ -162,20 +162,20 @@ export default {
       if (res && res[0]) {
         res = {
           code: 200,
-          msg: ctx.__('L00035'),
+          msg: ctx.__('L0003010'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: ctx.__('L00036'),
+          msg: ctx.__('L0003011'),
           data: res
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: ctx.__('L00037'),
+        msg: ctx.__('L0003012'),
         data: {}
       }
     }

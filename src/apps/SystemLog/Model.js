@@ -50,7 +50,7 @@ export default {
       fileStream = fs.createReadStream(filePath)
     } catch (e) {
       return {
-        msg: ctx.__('L00038'),
+        msg: ctx.__('L0004001'),
         statusText: 'error',
         list: []
       }
@@ -302,13 +302,13 @@ export default {
         }
 
         return {
-          msg: ctx.__('L00039'),
+          msg: ctx.__('L0004002'),
           statusText: 'success',
           list: logList
         }
       }, (err) => {
         return {
-          msg: ctx.__('L00040'),
+          msg: ctx.__('L0004003'),
           statusText: 'error',
           err: err,
           list: []

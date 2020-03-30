@@ -25,7 +25,7 @@ export default {
           if (hasSame) {
             res = {
               code: 5000,
-              msg: ctx.__('L00055'),
+              msg: ctx.__('L0006003'),
               data: hasSame
             }
           } else {
@@ -34,13 +34,13 @@ export default {
             if (res && res[0]) {
               res = {
                 code: 200,
-                msg: ctx.__('L00053'),
+                msg: ctx.__('L0006001'),
                 data: res
               }
             } else {
               res = {
                 code: 5000,
-                msg: ctx.__('L00054'),
+                msg: ctx.__('L0006002'),
                 data: res
               }
             }
@@ -48,14 +48,14 @@ export default {
         } else {
           res = {
             code: 9999,
-            msg: ctx.__('L00056'),
+            msg: ctx.__('L0006004'),
             data: {}
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00057'),
+          msg: ctx.__('L0006005'),
           data: {}
         }
       }
@@ -83,19 +83,19 @@ export default {
         if (data.oldPassword === data.newPassword) {
           res = {
             code: 5000,
-            msg: ctx.__('L00064'),
+            msg: ctx.__('L0006012'),
             data: {}
           }
         } else if (data.newPassword !== data.confirmNewPassword) {
           res = {
             code: 5000,
-            msg: ctx.__('L00065'),
+            msg: ctx.__('L0006013'),
             data: {}
           }
         } else if (!config.system.passwordReg.test(reqBody.newPassword)) {
           res = {
             code: 5000,
-            msg: ctx.__('L00066'),
+            msg: ctx.__('L0006014'),
             data: {}
           }
         } else if (data.id === userInfo.userId) {
@@ -104,7 +104,7 @@ export default {
           if (!isRight) {
             res = {
               code: 5000,
-              msg: ctx.__('L00060'),
+              msg: ctx.__('L0006008'),
               data: hasSame
             }
           } else {
@@ -113,13 +113,13 @@ export default {
             if (res && res[0]) {
               res = {
                 code: 200,
-                msg: ctx.__('L00058'),
+                msg: ctx.__('L0006006'),
                 data: res
               }
             } else {
               res = {
                 code: 5000,
-                msg: ctx.__('L00059'),
+                msg: ctx.__('L0006007'),
                 data: res
               }
             }
@@ -127,14 +127,14 @@ export default {
         } else {
           res = {
             code: 9999,
-            msg: ctx.__('L00061'),
+            msg: ctx.__('L0006009'),
             data: {}
           }
         }
       } else {
         res = {
           code: 5001,
-          msg: ctx.__('L00062'),
+          msg: ctx.__('L0006010'),
           data: {}
         }
       }

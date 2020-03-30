@@ -22,7 +22,7 @@ export default {
       }
       res = {
         code: 200,
-        msg: ctx.__('L00041'),
+        msg: ctx.__('L0005001'),
         data: {
           count: res.count,
           list: res.rows
@@ -31,7 +31,7 @@ export default {
     } else {
       res = {
         code: 5000,
-        msg: ctx.__('L00042'),
+        msg: ctx.__('L0005002'),
         data: {}
       }
     }
@@ -62,26 +62,26 @@ export default {
       if (isSuccess) {
         res = {
           code: 200,
-          msg: ctx.__('L00043'),
+          msg: ctx.__('L0005003'),
           data: resAccount
         }
       } else if (resAccount) {
         res = {
           code: 5000,
-          msg: ctx.__('L00044'),
+          msg: ctx.__('L0005004'),
           data: resAccount
         }
       } else {
         res = {
           code: 5000,
-          msg: ctx.__('L00045'),
+          msg: ctx.__('L0005005'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: ctx.__('L00046'),
+        msg: ctx.__('L0005006'),
         data: {}
       }
     }
@@ -100,20 +100,20 @@ export default {
       if (res) {
         res = {
           code: 200,
-          msg: ctx.__('L00047'),
+          msg: ctx.__('L0005007'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: ctx.__('L00048'),
+          msg: ctx.__('L0005008'),
           data: {}
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: ctx.__('L00049'),
+        msg: ctx.__('L0005009'),
         data: {}
       }
     }
@@ -137,20 +137,20 @@ export default {
       if (res && res[0]) {
         res = {
           code: 200,
-          msg: ctx.__('L00050'),
+          msg: ctx.__('L0005010'),
           data: res
         }
       } else {
         res = {
           code: 5000,
-          msg: ctx.__('L00051'),
+          msg: ctx.__('L0005011'),
           data: res
         }
       }
     } else {
       res = {
         code: 5001,
-        msg: ctx.__('L00052'),
+        msg: ctx.__('L0005012'),
         data: {}
       }
     }
